@@ -9,9 +9,11 @@ namespace EssentialCSharp.Controllers{
             foreach (Product product in Product.GetProducts())
             {
                 string Name = product?.Name ?? "<No Name>";
+                string Category = product?.Category.ToString() ;
                 decimal? Price = product?.Price ?? 0;
                 string RelatedName = product?.Related?.Name ?? "<Not Exist>";
-                results.Add(string.Format("Name : {0} , Price : {1} , Related Name : {2}",Name,Price,RelatedName ));
+                bool? inStock = product?.InStock ?? false;
+                results.Add(string.Format($"Name : {Name} , Category : {Category} , Price : {Price} , Related Name : {RelatedName} , In Stock : {inStock}"));
             }
             return View(results);
         }
