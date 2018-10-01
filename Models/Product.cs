@@ -21,6 +21,7 @@ namespace EssentialCSharp.Models{
         }
 
     }
+    //this enumerator for select one category for every product.
     public enum Category{
         Vitamin = 0,
         Antiputic =1,
