@@ -21,7 +21,7 @@ namespace EssentialCSharp.Models{
         }
 
     }
-    
+    //carcoosh
     //this enumerator for select one category for every product.
     public enum Category{
         Vitamin = 0,
