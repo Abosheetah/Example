@@ -1,4 +1,4 @@
-@model IEnumerable<string>
+@model string
 @{Layout = null;}
 <!DOCTYPE html>
     <html>
@@ -7,10 +7,6 @@
             <title>Language Features</title>
         </head>
         <body>
-            <ul>
-                @foreach (string s in Model) {
-                <li>@s</li>
-                }
-            </ul>
+            <h1>@Model</h1>
         </body>
     </html>

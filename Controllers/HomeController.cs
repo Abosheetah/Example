@@ -15,7 +15,12 @@ namespace EssentialCSharp.Controllers{
                 bool? inStock = product?.InStock ?? false;
                 results.Add(string.Format($"Name : {Name} , Category : {Category} , Price : {Price} , Related Name : {RelatedName} , In Stock : {inStock}"));
             }
-            return View(results);
+        
+            ShoppingCart shoppingCart = new ShoppingCart();
+            shoppingCart.Products = Product.GetProducts();
+            decimal decTotalPrice = shoppingCart.GetTotalPrice();
+            string res = string.Format($"Total : {decTotalPrice:C2}");
+            return View("Index",res);
         }
     }
 }
