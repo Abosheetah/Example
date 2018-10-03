@@ -20,7 +20,11 @@ namespace EssentialCSharp.Controllers{
             shoppingCart.Products = Product.GetProducts();
             decimal decTotalPrice = shoppingCart.GetTotalPrice();
             string res = string.Format($"Total : {decTotalPrice:C2}");
-            return View("Index",res);
+
+            Product[] productsArr = new Product[] { new Product(){ Name = "koko"  , Price = 25 }, new Product(){Name = "sdf" , Price = 54}};
+            decimal decTotalPrice2 = productsArr.GetTotalPrice();
+            
+            return View("Index",string.Format($"Total 1 : {decTotalPrice}",$"Total 2 : {decTotalPrice2}"));
         }
     }
 }
