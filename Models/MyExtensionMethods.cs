@@ -12,7 +12,25 @@ namespace EssentialCSharp.Models{
             //return total price .
             return decTotalPrice;
         }
-       
+       public static IEnumerable<Product> FilterByPrice(this IEnumerable<Product> products,decimal minimumPrice){
+           foreach (Product item in products)
+           {
+               if ((item?.Price ?? 0) > minimumPrice)
+               {
+                   yield return item;
+               }
+           }
+       }  
+
+       public static IEnumerable<Product> FilterByName(this IEnumerable<Product> products ,char firstLetter){
+           foreach (Product item in products)
+           {
+               if (item?.Name[0] == firstLetter)
+               {
+                   yield return item;
+               }
+           }
+       }     
     }
    
 }

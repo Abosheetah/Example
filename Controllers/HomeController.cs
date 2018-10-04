@@ -16,15 +16,21 @@ namespace EssentialCSharp.Controllers{
                 results.Add(string.Format($"Name : {Name} , Category : {Category} , Price : {Price} , Related Name : {RelatedName} , In Stock : {inStock}"));
             }
         
+            //filter by price
             ShoppingCart shoppingCart = new ShoppingCart();
             shoppingCart.Products = Product.GetProducts();
-            decimal decTotalPrice = shoppingCart.GetTotalPrice();
+            decimal decTotalPrice = shoppingCart.FilterByPrice(50).GetTotalPrice();
             string res = string.Format($"Total : {decTotalPrice:C2}");
 
+            //filter by first letter in name.
+
+
+            //the reguler position.
             Product[] productsArr = new Product[] { new Product(){ Name = "koko"  , Price = 25 }, new Product(){Name = "sdf" , Price = 54}};
             decimal decTotalPrice2 = productsArr.GetTotalPrice();
             
             return View("Index",string.Format($"Total 1 : {decTotalPrice}",$"Total 2 : {decTotalPrice2}"));
+            
         }
     }
 }
