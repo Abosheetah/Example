@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 namespace EssentialCSharp.Models{
     
@@ -26,6 +27,16 @@ namespace EssentialCSharp.Models{
            foreach (Product item in products)
            {
                if (item?.Name[0] == firstLetter)
+               {
+                   yield return item;
+               }
+           }
+       }
+
+       public static IEnumerable<Product> Filter(this IEnumerable<Product> products, Func<Product, bool> selector){
+           foreach (Product item in products)
+           {
+               if (selector(item))
                {
                    yield return item;
                }

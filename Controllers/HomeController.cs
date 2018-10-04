@@ -23,7 +23,9 @@ namespace EssentialCSharp.Controllers{
             string res = string.Format($"Total : {decTotalPrice:C2}");
 
             //filter by first letter in name.
-
+            ShoppingCart shoppingCart1 = new ShoppingCart();
+            shoppingCart1.Products = Product.GetProducts();
+            decimal decTotalPrice1 = shoppingCart.FilterByName('s').FilterByPrice(200).GetTotalPrice();
 
             //the reguler position.
             Product[] productsArr = new Product[] { new Product(){ Name = "koko"  , Price = 25 }, new Product(){Name = "sdf" , Price = 54}};
@@ -31,6 +33,7 @@ namespace EssentialCSharp.Controllers{
             
             return View("Index",string.Format($"Total 1 : {decTotalPrice}",$"Total 2 : {decTotalPrice2}"));
             
+            decimal decTotalFilterPrice = shoppingCart1.Filter(i => (i?.Price ?? 0) > 20).GetTotalPrice();
         }
     }
 }
