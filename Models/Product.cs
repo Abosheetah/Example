@@ -20,6 +20,9 @@ namespace EssentialCSharp.Models{
             return new Product[]{AllVit,Phose,MycoB,VitE,null};
         }
 
+
+              
+
     }
     //carcoosh
     //this enumerator for select one category for every product.

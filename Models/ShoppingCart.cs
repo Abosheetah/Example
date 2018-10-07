@@ -13,6 +13,8 @@ namespace EssentialCSharp.Models{
         IEnumerator IEnumerable.GetEnumerator()
         {
             return Products.GetEnumerator();
+
+            
         }
     }
 }
